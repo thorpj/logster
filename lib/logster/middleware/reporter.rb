@@ -58,7 +58,7 @@ module Logster
 
         backtrace = params["stacktrace"] || ""
 
-        severity = ::Logger::Severity::WARN
+        severity = Logster.config.js_log_severity
         if params["severity"] &&
            ::Logger::Severity.const_defined?(params["severity"].upcase)
           severity = ::Logger::Severity.const_get(params["severity"].upcase)

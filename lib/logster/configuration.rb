@@ -18,7 +18,9 @@ module Logster
       :gems_dir,
       :max_env_bytes,
       :max_env_count_per_message,
-      :maximum_message_length
+      :maximum_message_length,
+      :log_severity,
+      :js_log_severity
     )
 
     attr_writer :subdirectory
@@ -39,6 +41,8 @@ module Logster
       @enable_backtrace_links = true
       @gems_dir = Gem.dir + "/gems/"
       @maximum_message_length = 2000
+      @log_severity = ::Logger::Severity::WARN
+      @js_log_severity = ::Logger::Severity::WARN
 
       @allow_grouping = false
 
