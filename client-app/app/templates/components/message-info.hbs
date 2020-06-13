@@ -1,6 +1,6 @@
 <div class="message-info">
   {{#tabbed-section onTabChange=(action "tabChanged")}}
-    {{#tab-contents name="info" hint="show info" currentMessage=currentMessage}}
+    {{#tab-contents name="info" defaultTab="true" hint="show info" currentMessage=currentMessage}}
       {{#if showTitle}}
         <h3>Message
           {{#if currentMessage.showCount}}
@@ -10,7 +10,7 @@
       {{/if}}
       <pre>{{currentMessage.message}}</pre>
     {{/tab-contents}}
-    {{#tab-contents name="backtrace" defaultTab="true" hint="show backtrace" currentMessage=currentMessage}}
+    {{#tab-contents name="backtrace" hint="show backtrace" currentMessage=currentMessage}}
       {{#if showTitle}}
         <h3>Backtrace</h3>
       {{/if}}
@@ -27,7 +27,7 @@
           {{#if showTitle}}
             <h3>Env</h3>
           {{/if}}
-          {{env-tab 
+          {{env-tab
             message=currentMessage
             currentEnvPosition=currentEnvPosition
             envChangedAction=envChangedAction}}
